@@ -587,7 +587,7 @@ def filepress(url):
             'method': 'publicDownload',
         } 
         api = f'{raw.scheme}://{raw.hostname}/api/file/downlaod/'
-        res = cget('POST', api, headers={'Referer': f'{raw.scheme}://{raw.hostname}'}, json=gd_data).json()
+        res = cget('POST', api, headers={'Referer': f'{raw.scheme}://{raw.hostname}'}, json=json_data).json()
         tg_res = cget('POST', api, headers={'Referer': f'{raw.scheme}://{raw.hostname}'}, json=tg_data).json()
       
     except Exception as e:
