@@ -578,7 +578,7 @@ def filepress(url):
     try:
         url = cget('GET', url).url
         raw = urlparse(url)
-        gd_data = {
+        json_data = {
             'id': raw.path.split('/')[-1],
             'method': 'publicDownlaod',
         }
@@ -587,7 +587,7 @@ def filepress(url):
             'method': 'publicDownload',
         } 
         api = f'{raw.scheme}://{raw.hostname}/api/file/downlaod/'
-        gd_res = cget('POST', api, headers={'Referer': f'{raw.scheme}://{raw.hostname}'}, json=gd_data).json()
+        res = cget('POST', api, headers={'Referer': f'{raw.scheme}://{raw.hostname}'}, json=gd_data).json()
         tg_res = cget('POST', api, headers={'Referer': f'{raw.scheme}://{raw.hostname}'}, json=tg_data).json()
       
     except Exception as e:
